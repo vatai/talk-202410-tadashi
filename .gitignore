@@ -1,0 +1,10 @@
+*~
+**/\#*\#
+.\#*\#
+_minted*
+org-ltximg*
+*.aux
+*.log
+*.synctex.gz
+*.fls
+*.fdb_latexmk
