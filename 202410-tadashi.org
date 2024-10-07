@@ -290,11 +290,6 @@ iii. \qrcode{https://arxiv.org/abs/2410.03210}
 Expected:
    - Less retraining
    - Better exploration \Rightarrow better results for a given kernel
-** COMMENT Overview again
-:PROPERTIES:
-:beamer_ref: overview
-:beamer_env: againframe
-:END:
 ** COMMENT Status quo
 *** Not an average AI talk
 
