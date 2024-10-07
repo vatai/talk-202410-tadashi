@@ -1,4 +1,4 @@
-% Created 2024-10-07 月 01:02
+% Created 2024-10-07 月 11:34
 % Intended LaTeX compiler: xelatex
 \documentclass[presentation, aspectratio=169]{beamer}
 \usepackage{graphicx}
@@ -58,7 +58,7 @@
 \usefonttheme{serif}
 \usetheme{default}
 \author{\alert{E. Vatai}, A. Drozd, I. R. Ivanov, Y. Ren, M. Wahib}
-\date{\url{http://vatai.github.io/}}
+\date{R-CCS, High Performance Artificial Intelligence Systems Research Team}
 \title{Enabling AI-based Automated Code Generation with Guaranteed Correctness}
 \hypersetup{
  pdfauthor={\alert{E. Vatai}, A. Drozd, I. R. Ivanov, Y. Ren, M. Wahib},
@@ -71,8 +71,13 @@
 
 \maketitle
 \section{Tadashi}
-\label{sec:org6f39c4c}
-\begin{frame}[label={sec:orgf9dc1c3}]{ML approaches to correctness in code generation}
+\label{sec:org14d3e85}
+\begin{frame}[label={sec:org152fac9}]{}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{./figs/xkcd.png}
+\end{center}
+\end{frame}
+\begin{frame}[label={sec:org73d51f3}]{ML approaches to correctness in code generation}
 \begin{columns}
 \begin{column}{0.45\columnwidth}
 \begin{itemize}
@@ -82,6 +87,7 @@
 \item Writing tests is not trivial
 \end{itemize}
 \item <3-> Surrogate ML model
+\item <3-> Round-trip
 \begin{itemize}
 \item Trust issues
 \end{itemize}
@@ -94,10 +100,6 @@
 \begin{itemize}
 \item Not well established
 \end{itemize}
-\item <6-> Round-trip
-\begin{itemize}
-\item Trust issues
-\end{itemize}
 \end{itemize}
 \end{column}
 \begin{column}{0.45\columnwidth}
@@ -109,24 +111,19 @@
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:orgdb69c7f}]{}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{./figs/xkcd.png}
-\end{center}
-\end{frame}
-\begin{frame}[label={sec:org35fc1b0}]{All you need is to sample the set of correct transformations}
+\begin{frame}[label={sec:org97b75b4}]{All you need is to sample the set of correct transformations}
 \begin{itemize}
 \item <+-> \alert{ML codegen is transformations} on a reference implementation
 \item <+-> ML can \alert{explore the space of transformations} to find a faster version
 \item <+-> But we also need \alert{correctness}
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:org7790027}]{TADASHI: \alert{loop transformations} with correctness check}
+\begin{frame}[label={sec:org9267814}]{TADASHI: \alert{loop transformations} with correctness check}
 \begin{center}
 \includegraphics[width=.9\linewidth]{./figs/sampling.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgd4bb48c}]{Reinforcement learning}
+\begin{frame}[label={sec:orgd301fd7}]{Reinforcement learning}
 \begin{itemize}
 \item Actions = primitive transformations; Reward = walltime; Environment = correctness
 \end{itemize}
@@ -134,7 +131,7 @@
 \includegraphics[width=0.7\textwidth]{./figs/ml-rl.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org921dcb3}]{Supervised learning}
+\begin{frame}[label={sec:org4ac978c}]{Supervised learning}
 \begin{itemize}
 \item Dataset generation (legal transformations); Sample label: runtime
 \end{itemize}
@@ -142,7 +139,7 @@
 \includegraphics[width=0.7\textwidth]{./figs/ml-sl.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgb938ab6}]{Evolutionary algorithms}
+\begin{frame}[label={sec:orgd516121}]{Evolutionary algorithms}
 \begin{itemize}
 \item Exploration and explorations; Candidates = transformations; Objective function = runtime
 \end{itemize}
@@ -150,7 +147,7 @@
 \includegraphics[width=0.7\textwidth]{./figs/ml-ea.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org78ea039}]{LLM agents}
+\begin{frame}[label={sec:org405e45d}]{LLM agents}
 \begin{itemize}
 \item Dataset generation; High quality correct transformations; Caveat! Hallucinations are possible!
 \end{itemize}
@@ -158,7 +155,7 @@
 \includegraphics[width=0.8\textwidth]{./figs/ml-ul.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgc6cfe5b}]{Auto-Tuning}
+\begin{frame}[label={sec:orgf0da3c4}]{Auto-Tuning}
 \begin{itemize}
 \item Brute forcing on a bounded region of the space (grid search)
 \end{itemize}
@@ -166,7 +163,7 @@
 \includegraphics[width=0.7\textwidth]{./figs/ml-at.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org6dab10a}]{Grand vision}
+\begin{frame}[label={sec:orgfeb3779}]{Grand vision}
 \begin{block}{Large scale optimisation framework}
 \begin{center}
 \begin{tikzpicture}[
@@ -193,7 +190,7 @@ Spending 6h on the whole machine to make the code 5\% faster will pay off.  -- N
 \end{quote}
 \end{block}
 \end{frame}
-\begin{frame}[label={sec:org351ec09},fragile]{Now: Support C, Harness, and Transformations}
+\begin{frame}[label={sec:org0083ef8},fragile]{Now: Support C, Harness, and Transformations}
  \begin{center}
 \begin{tabular}{ll}
 \texttt{TrEnum} & Args\\
@@ -214,7 +211,7 @@ Spending 6h on the whole machine to make the code 5\% faster will pay off.  -- N
 \end{tabular}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org0cd5127}]{Future:}
+\begin{frame}[label={sec:org9171e94}]{Future:}
 \begin{columns}
 \begin{column}{0.48\columnwidth}
 \begin{itemize}
@@ -250,7 +247,7 @@ Spending 6h on the whole machine to make the code 5\% faster will pay off.  -- N
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org55d3329},fragile]{Random RL}
+\begin{frame}[label={sec:orgf2a8db6},fragile]{Random RL}
  \begin{minted}[]{python}
 def train_model(app, num_iter=3, net=Model()):
   loop_nests = LoopNests(app)
@@ -268,22 +265,22 @@ def train_model(app, num_iter=3, net=Model()):
     # net.update(loop_idx, tr, args, legal, t)
 \end{minted}
 \end{frame}
-\begin{frame}[label={sec:org6d65bd2}]{Breakdown (primitive)}
+\begin{frame}[label={sec:org8d5974d}]{Breakdown (primitive)}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./figs/plot-breakdown-abs-1.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org9e6c436}]{Breakdown (10 seq)}
+\begin{frame}[label={sec:org89de702}]{Breakdown (10 seq)}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./figs/plot-breakdown-abs-10.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgb9bee36}]{Throughput}
+\begin{frame}[label={sec:org0e2a1a3}]{Throughput}
 \begin{center}
 \includegraphics[width=0.7\textwidth]{./figs/plot-throughput.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:orgdee6bbb}]{Representations}
+\begin{frame}[label={sec:org2dfab17}]{Representations}
 Different levels of abstraction
 \begin{itemize}
 \item source code [Stein: Paraphrasing etc.]
@@ -294,7 +291,7 @@ Different levels of abstraction
 \item assembly instructions [Deepmind: Faster sorting]
 \end{itemize}
 \end{frame}
-\begin{frame}[label={sec:orgc5d72af},fragile]{Polyhedral model}
+\begin{frame}[label={sec:org58a6caa},fragile]{Polyhedral model}
  \begin{columns}
 \begin{column}{0.45\columnwidth}
 \begin{block}{Components}
@@ -320,7 +317,7 @@ for(int i = 0; i < N; i++)
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:orge1560a3}]{}
+\begin{frame}[label={sec:orgea265b7}]{}
 \begin{columns}
 \begin{column}{0.45\columnwidth}
 \begin{figure}
@@ -345,7 +342,7 @@ for(int i = 0; i < N; i++)
 \end{column}
 \end{columns}
 \end{frame}
-\begin{frame}[label={sec:org3da4216},fragile]{End-to-end example}
+\begin{frame}[label={sec:orgc985d37},fragile]{End-to-end example}
  \begin{minted}[]{python}
 import tadashi
 app = tadahis.Simple("input.c")
@@ -360,12 +357,12 @@ if legal:
     printf(f"Walltime: {t}")
 \end{minted}
 \end{frame}
-\begin{frame}[label={sec:orgd726f4c}]{}
+\begin{frame}[label={sec:orgd7ceb63}]{}
 \begin{center}
 \includegraphics[width=0.65\textwidth]{./figs/design.pdf}
 \end{center}
 \end{frame}
-\begin{frame}[label={sec:org06b8dce}]{That's all folks!}
+\begin{frame}[label={sec:orga0da6b6}]{That's all folks!}
 \begin{itemize}
 \item i. \url{https://vatai.github.io/}
 \item ii. \url{https://github.com/vatai/tadashi/}

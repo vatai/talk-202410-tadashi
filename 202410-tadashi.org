@@ -13,11 +13,17 @@
 #+latex_header: \usetikzlibrary{arrows, matrix, arrows.meta, shapes, shapes.arrows, shapes.multipart, shapes.symbols, fadings, fit, positioning, decorations.pathreplacing, angles, quotes}
 #+latex_header: \setbeamercovered{transparent}
 #+title: Enabling AI-based Automated Code Generation with Guaranteed Correctness
-#+date: http://vatai.github.io/
+#+date: R-CCS, High Performance Artificial Intelligence Systems Research Team
 #+author: *E. Vatai*, A. Drozd, I. R. Ivanov, Y. Ren, M. Wahib
 #+bibliography: ~/overleaf/tadashi-paper/main.bib
 
 * Tadashi
+** XKCD
+:PROPERTIES:
+:beamer_env: fullframe
+:END:
+#+attr_latex: :width 0.5\textwidth
+[[file:./figs/xkcd.png]]
 ** ML approaches to correctness in code generation
 *** Left column
 :PROPERTIES:
@@ -27,14 +33,13 @@
   - Coverage
   - Writing tests is not trivial
 - <3-> Surrogate ML model
+- <3-> Round-trip
   - Trust issues
 - <4-> Limit ML to short sequences of instructions
 - <4-> Limit ML to a set of determined transformations
   - Not general
 - <5-> Symbolic execution
   - Not well established
-- <6-> Round-trip
-  - Trust issues
 *** Right column
 :PROPERTIES:
 :beamer_col: 0.45
@@ -47,12 +52,6 @@
 "Program testing can be used to show the presence of bugs, but never to show their absence!"
 
 #+end_quote
-** XKCD
-:PROPERTIES:
-:beamer_env: fullframe
-:END:
-#+attr_latex: :width 0.5\textwidth
-[[file:./figs/xkcd.png]]
 ** All you need is to sample the set of correct transformations
 - <+-> *ML codegen is transformations* on a reference implementation
 - <+-> ML can *explore the space of transformations* to find a faster version
